@@ -69,7 +69,6 @@ class LikeActivity(_ProtoActivity):
             print(f"Exception Arguments: {Exception.args}")
 
 
-
 class RetweetActivity(_ProtoActivity):
 
     def __init__(self, action_row_obj):
