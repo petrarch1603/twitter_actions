@@ -39,17 +39,28 @@ class CommentActivity(_ProtoActivity):
         self.status = self._comment()
 
     def _comment(self):
-        if self.author.lower() == 'mapporntweet':
-            tweet = self.api.update_status(status=self.text,
-                                           in_reply_to_status_id=self.id)
-            print(f"Made comment: \n{self.text}"
-                  f"in reply to https://twitter.com/MapPornTweet/status/{self.id}")
-        else:
-            tweet = self.api.update_status(status=self.text + ' @' + self.author,
-                                           in_reply_to_status_id=self.id)
-            print(f"Made comment: \n{self.text}"
-                  f"in reply to https://twitter.com/{self.author}/status/{self.id}")
-        return tweet
+        try:
+            if self.author.lower() == 'mapporntweet':
+
+                tweet = self.api.update_status(status=self.text,
+                                               in_reply_to_status_id=self.id)
+                print(f"Made comment: \n{self.text}"
+                      f"in reply to https://twitter.com/MapPornTweet/status/{self.id}")
+                return tweet
+            else:
+                tweet = self.api.update_status(status=self.text + ' @' + self.author,
+                                               in_reply_to_status_id=self.id)
+                print(f"Made comment: \n{self.text}"
+                      f"in reply to https://twitter.com/{self.author}/status/{self.id}")
+                return tweet
+
+        except Exception as e:
+            print(f"Error encountered in comment status: {e}\n\n\n")
+            print(f"Exception Arguments: {Exception.args}")
+            try:
+                print(f"e.code is {e.code}")
+            except:
+                pass
 
 
 class LikeActivity(_ProtoActivity):
@@ -67,6 +78,11 @@ class LikeActivity(_ProtoActivity):
         except Exception as e:
             print(f"Error encountered in liking status: {e}\n\n\n")
             print(f"Exception Arguments: {Exception.args}")
+            try:
+                print(f"e.code is {e.code}")
+            except:
+                pass
+
 
 
 class RetweetActivity(_ProtoActivity):
