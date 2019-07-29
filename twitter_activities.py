@@ -62,12 +62,12 @@ class LikeActivity(_ProtoActivity):
         print(f"Like Activity")
         try:
             tweet = self.api.create_favorite(id=self.id)
+            print(f"Liked url: https://twitter.com/{self.author}/status/{str(self.id)}")
+            return tweet
         except Exception as e:
             print(f"Error encountered in liking status: {e}\n\n\n")
             print(f"Exception Arguments: {Exception.args}")
 
-        print(f"Liked url: https://twitter.com/{tweet.user.screen_name}/status/{tweet.id_str}")
-        return tweet
 
 
 class RetweetActivity(_ProtoActivity):
