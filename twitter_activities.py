@@ -69,6 +69,7 @@ class LikeActivity(_ProtoActivity):
         print(f"Liked url: https://twitter.com/{tweet.user.screen_name}/status/{tweet.id_str}")
         return tweet
 
+print("HI")
 
 class RetweetActivity(_ProtoActivity):
 
