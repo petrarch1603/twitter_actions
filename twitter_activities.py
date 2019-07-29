@@ -57,10 +57,6 @@ class CommentActivity(_ProtoActivity):
         except Exception as e:
             print(f"Error encountered in comment status: {e}\n\n\n")
             print(f"Exception Arguments: {Exception.args}")
-            try:
-                print(f"e.code is {e.code}")
-            except:
-                pass
 
 
 class LikeActivity(_ProtoActivity):
@@ -78,10 +74,7 @@ class LikeActivity(_ProtoActivity):
         except Exception as e:
             print(f"Error encountered in liking status: {e}\n\n\n")
             print(f"Exception Arguments: {Exception.args}")
-            try:
-                print(f"e.code is {e.code}")
-            except:
-                pass
+            print(e['code'])
 
 
 
