@@ -96,8 +96,7 @@ class ActionRow(_SuperRow):
         if self.directive == 'like':
             return twitter_activities.LikeActivity(action_row_obj=self).status
         self.executed = 0
-        print(f"Error detected in posting to twitter (Database.py)\n"
-              f"Directive is: {self.directive}")
+        print(f"Error detected in posting to twitter (Database.py)\n Directive is: {self.directive}")
 
 
 class _SuperDB:
