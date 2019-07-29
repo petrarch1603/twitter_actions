@@ -65,7 +65,7 @@ def update_progress(progress):
         progress = 1
         status = "Done...\r\n"
     block = int(round(bar_length*progress))
-    text = "\rChecking Integrity of CSV: [{0}] {1}% {2}".format(
+    text = "\rStatus: [{0}] {1}% {2}".format(
         "#"*block + "-"*(bar_length-block), progress*100, status)
     sys.stdout.write(text)
     sys.stdout.flush()
