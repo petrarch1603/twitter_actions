@@ -77,7 +77,6 @@ class LikeActivity(_ProtoActivity):
             print(e['code'])
 
 
-
 class RetweetActivity(_ProtoActivity):
 
     def __init__(self, action_row_obj):
@@ -151,7 +150,11 @@ def process_requests(hashtag="#mappornrequest", testing=0, count=100):
 
 
 def respond_to_requests(count=10, testing=0):
-    for request in Database.RequestDB(testing=testing).get_unresponded_list()[:count]:
+    new_requests = Database.RequestDB(testing=testing).get_unresponded_list()[:count]
+    if len(new_requests) == 0:
+        print("No new requests")
+        return
+    for request in new_requests:
         my_resp_dict = {'row_date': request.row_date,
                         'link': request.link,
                         'testing': request.testing

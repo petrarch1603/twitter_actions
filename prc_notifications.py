@@ -28,6 +28,7 @@ old_created = mentions[-1].created_at
 
 oldest = f"Oldest Mention: {get_day_of_week_var(old_created)} at {old_created.time().isoformat()}"
 
+
 def clean_mentions(raw_mentions):
     prc_mentions_list = []
     for raw in raw_mentions:
