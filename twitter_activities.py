@@ -161,11 +161,17 @@ def respond_to_requests(count=10, testing=0):
                         }
         pprint.pprint(request.text)
         time.sleep(1)
-        my_response = input("How would you like to respond to this request")
+        my_response = input("How would you like to respond to this request? Press x to void it.\n\n")
         if my_response == '':
             print("Request Skipped.")
             continue
-        my_like_dict = my_resp_dict
+        elif my_response.lower() == 'x':
+            print("Request voided.")
+            Database.RequestDB(testing=testing).update_row_to_responded(unique_id=request.unique_id)
+            continue
+        my_like_dict = my_resp_dict  # Copy the dictionary into two rows.
+        # This way there will be a like action and comment action
+
         my_like_dict['directive'] = 'like'
         my_resp_dict['directive'] = 'comment'
         my_resp_dict['text'] = my_response
