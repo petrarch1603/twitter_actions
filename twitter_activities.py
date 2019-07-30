@@ -83,9 +83,14 @@ class RetweetActivity(_ProtoActivity):
         self.status = self._retweet()
 
     def _retweet(self):
-        retweet = self.api.retweet(id=self.id)
-        print(f"Retweeted https://twitter.com/{retweet.user.screen_name}/status/{retweet.id_str}")
-        return retweet
+        try:
+
+            retweet = self.api.retweet(id=self.id)
+            print(f"Retweeted https://twitter.com/{retweet.user.screen_name}/status/{retweet.id_str}")
+            return retweet
+        except Exception as e:
+            print(f"Error encountered in liking status: {e}\n\n\n")
+            print(f"Exception Arguments: {Exception.args}")
 
 
 class MapRequest:
