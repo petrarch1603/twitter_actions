@@ -74,7 +74,6 @@ class LikeActivity(_ProtoActivity):
         except Exception as e:
             print(f"Error encountered in liking status: {e}\n\n\n")
             print(f"Exception Arguments: {Exception.args}")
-            print(e['code'])
 
 
 class RetweetActivity(_ProtoActivity):

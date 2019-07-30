@@ -12,6 +12,10 @@ with open('data_discover_followers/last_time.txt') as f:
 print(f'Current Time is: {current_time}')
 print(f'Previous Time is: {previous}')
 
+my_ht = '#mappornrequest'
+
+twitter_activities.process_requests(hashtag=my_ht)
+
 
 api = my_helper.api_init()
 
