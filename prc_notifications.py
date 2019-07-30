@@ -2,6 +2,7 @@ import calendar
 import Database
 import datetime
 import my_helper
+import twitter_activities
 
 current_time = str(datetime.datetime.now().timestamp())
 with open('data_discover_followers/last_time.txt') as f:
@@ -43,6 +44,8 @@ print(oldest)
 print(len(mentions))
 mentions = clean_mentions(mentions)
 print(f"Clean Mentions: {len(mentions)}")
+
+twitter_activities.respond_to_requests()
 
 for count, i in enumerate(mentions):
     print(i.created_at.timestamp())
