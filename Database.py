@@ -140,7 +140,6 @@ class _SuperDB:
         keys = ','.join(row_dict.keys())
         question_marks = ','.join(list(['%s']*len(row_dict)))
         values = tuple(row_dict.values())
-        #  q = 'INSERT INTO '+self.table+' ('+keys+') VALUES ('+question_marks+')', values
         self.curs.execute('INSERT INTO '+self.table+' ('+keys+') VALUES ('+question_marks+')', values)
         self.conn.commit()
 
@@ -183,7 +182,7 @@ class ActionDB(_SuperDB):
         else:
             results_list = raw_list
         print(f"Number of Unexecuted Actions in pool: {len(results_list)}")
-        count_limit = int(len(results_list) / 4)
+        count_limit = int(len(results_list) / 7)
         print(f"Executing 25% of Actions: {count_limit}")
         results_list.sort(key=lambda r: r.row_date)  # Sort oldest to newest
 
