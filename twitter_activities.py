@@ -173,6 +173,8 @@ def respond_to_requests(count=10, testing=0):
             print("Request voided.")
             Database.RequestDB(testing=testing).update_row_to_responded(unique_id=request.unique_id)
             continue
+        elif len(my_response) == 1:
+            my_response = input("Are you sure? That's only one letter. Try again!")
         my_like_dict = my_resp_dict  # Copy the dictionary into two rows.
         # This way there will be a like action and comment action
 
