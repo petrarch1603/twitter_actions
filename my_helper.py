@@ -142,3 +142,11 @@ def add_csv_to_database(csv_path, testing=0):
         with open('data_discover_followers/problem_rows.csv', 'w+') as f:
             writer = csv.writer(f)
             writer.writerows(problem_list)
+
+
+def check_for_keyword(keyword, test_string):
+    if keyword.lower() in test_string.lower():
+        return True
+    else:
+        return False
+
