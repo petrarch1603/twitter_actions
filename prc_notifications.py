@@ -38,9 +38,12 @@ def clean_mentions(raw_mentions):
     prc_mentions_list = []
     for raw in raw_mentions:
         my_created_at = (my_helper.datetime_from_utc_to_local(raw.created_at)).timestamp()
+        if my_helper.check_for_keyword(keyword="#mappornrequest", test_string=raw.text):
+            continue
         if my_created_at > previous:
             print(f'This one was created at: {my_created_at}')
             prc_mentions_list.append(raw)
+
     return prc_mentions_list
 
 
@@ -55,9 +58,11 @@ for count, i in enumerate(mentions):
     print(i.created_at.timestamp())
     print(previous)
     print("\n" * 5)
+    print(f"{i.author.screen_name}\n")
     print(i.text)
 
     url = f"https://twitter.com/{i.user.screen_name}/status/{i.id}"
+    print(url)
     comment = input("To reply push R, to like push L\n\n").lower()
     if comment == '':
         continue
