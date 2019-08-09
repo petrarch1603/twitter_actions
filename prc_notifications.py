@@ -94,4 +94,5 @@ with open('data_discover_followers/last_time.txt', 'w') as f:
     f.write(current_time)
 
 print(f"Rate Limit: {my_helper.get_remaining(api)}")
+print(f"Remaining Unexecuted Actions = {len(Database.ActionDB().complete_unexecuted_list())}")
 print("script finished!")
