@@ -154,10 +154,14 @@ def process_requests(hashtag="#mappornrequest", testing=0, count=100):
 
 
 def respond_to_requests(count=10, testing=0):
-    new_requests = Database.RequestDB(testing=testing).get_unresponded_list()[:count]
+    complete_new_requests = Database.RequestDB(testing=testing).get_unresponded_list()
+    new_requests = complete_new_requests[:count]
+    # Count limits the number of requests. This way I don't get fatigued.
+    assert len(new_requests) <= count
     if len(new_requests) == 0:
         print("No new requests")
         return
+    print(f"{len(complete_new_requests)} new requests!")
     for request in new_requests:
         my_resp_dict = {'row_date': request.row_date,
                         'link': request.link,
