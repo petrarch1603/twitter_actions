@@ -14,7 +14,7 @@ print(f'Previous Time is: {previous}')
 
 my_ht = '#mappornrequest'
 
-twitter_activities.process_requests(hashtag=my_ht)
+# Do I need to process requests? twitter_activities.process_requests(hashtag=my_ht)
 
 
 api = my_helper.api_init()
@@ -60,6 +60,10 @@ for count, i in enumerate(mentions):
     print("\n" * 5)
     print(f"{i.author.screen_name}\n")
     print(i.text)
+
+    # Check if it's a simple thank you tweet. Use this to silently like the comment and move on to the next tweet.
+    if len(i.text) <= 15 and my_helper.check_for_thanks(i.text):
+        print("This seems like it is a Thank You!")
 
     url = f"https://twitter.com/{i.user.screen_name}/status/{i.id}"
     print(url)
