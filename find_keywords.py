@@ -1,7 +1,5 @@
 import csv
 import os
-from my_secrets import *
-import tweepy
 
 
 keyword = input('What is the keyword?\n').lower()
