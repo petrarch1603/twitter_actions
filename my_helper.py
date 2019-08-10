@@ -150,3 +150,10 @@ def check_for_keyword(keyword, test_string):
     else:
         return False
 
+
+def check_for_thanks(test_string):
+    thanks_list = ['thank', 'gracias']
+    for i in thanks_list:
+        if i in test_string:
+            return True
+    return False
