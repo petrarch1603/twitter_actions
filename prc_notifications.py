@@ -62,7 +62,7 @@ for count, i in enumerate(mentions):
     print(i.text)
 
     # Check if it's a simple thank you tweet. Use this to silently like the comment and move on to the next tweet.
-    if len(i.text) <= 15 and my_helper.check_for_thanks(i.text):
+    if len(i.text) <= 15 and my_helper.check_for_thanks(i.text.lower()):
         print("This seems like it is a Thank You!")
 
     url = f"https://twitter.com/{i.user.screen_name}/status/{i.id}"
