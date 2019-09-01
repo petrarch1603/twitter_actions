@@ -176,7 +176,7 @@ class ActionDB(_SuperDB):
         if len(raw_list) > 100:
             split_date = datetime.datetime.now() - datetime.timedelta(days=self.subtract_days)
             self.curs.execute(f"SELECT * FROM {self.table} WHERE row_date > {split_date.strftime('%Y-%m-%d')} "
-                              f"AND testing = {self.testing}")
+                              f"AND testing = {self.testing} and EXECUTED = 0")
             # turn into row objects
             results_list = self._get_row_list(self.curs.fetchall())  # Turn into row objects
         else:
