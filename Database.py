@@ -182,7 +182,7 @@ class ActionDB(_SuperDB):
         else:
             results_list = raw_list
         print(f"Number of Unexecuted Actions in pool: {len(results_list)}")
-        count_limit = int(len(results_list) / 7)  # This is limits the number of activities to execute
+        count_limit = int(len(results_list) / 15)  # This is limits the number of activities to execute
         print(f"Executing 25% of Actions: {count_limit}")
         results_list.sort(key=lambda r: r.row_date)  # Sort oldest to newest
 
