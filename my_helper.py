@@ -102,7 +102,8 @@ def test_csv(master_list):
                 assert len(i[2]) > 0
             assert len(i[0]) > 0
         except AssertionError as e:
-            print(e)
+            print("Error encountered in test_csv()")
+            print("CSV Row: " + str(e) + " " + str(i))
             print(num)
             exit()
         check_mentions(i)
